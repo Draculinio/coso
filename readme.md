@@ -10,6 +10,8 @@ Programa que iremos creando en las sesione de código semanal de Draculinio con 
 * CUALQUIERA puede hacer un fork, pedir un pull request, lo que se les cante
 * Podemos pedirle ayuda a ChatGPT PEEEEEEEEEEEEEEEEEEEERO... hay que entender de que va la cosa.
 * No copiar y pegar código ciegamente
+* OFUSCAR PORQUE PROGRAMAR ES PARA VALIENTES
+* No crear nada que no sea estríctamente necesario
 
 ## Que vamos a hacer
 

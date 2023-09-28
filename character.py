@@ -1,23 +1,36 @@
 import random
+from rules import Rules
+from weapons import Weapon
 
 class Character:
     def __init__(self, name):
-        self.name = name
-        self.defense = random.randrange(0,10)
-        self.attack = random.randrange(0,10)
-        self.pv = random.randrange(50,100)
-        self.level = 1
-        self.experience = 0
-        self.gold = 0
-    
+        #weapon = Weapon(Weapon("Wood Sword", 2))
+        self.rules = Rules()
+        self.characteristics = {
+            "name":name,
+            "defense": random.randrange(0,10),
+            "attack": random.randrange(0,10),
+            "pv": random.randrange(50,100),
+            "level": 1,
+            "experience": 0,
+            "gold": 0,
+            "equipment": {
+                "weapon": Weapon("Wood Sword", 2)
+            }
+        }
+        
     def show_stats(self):
         print('-----------STATS----------')
-        print('- NAME:    '+self.name)
-        print('- Defense: '+ str(self.defense))
-        print('- Attack: '+ str(self.attack))
-        print('- PV: '+ str(self.pv))
-        print('- LEVEL: '+str(self.level))
-        print('- Exp: '+ str(self.experience))
-        print('-$'+str(self.gold))
+        print('- NAME:    '+ self.characteristics['name'])
+        print('- Defense: '+ str(self.characteristics['defense']))
+        print('- Attack: '+ str(self.characteristics['attack']))
+        print('- PV: '+ str(self.characteristics['pv']))
+        print('- LEVEL: '+str(self.characteristics['level']))
+        print('- Exp: '+ str(self.characteristics['experience']))
+        print('-$'+str(self.characteristics['gold']))
 
-    
+    def attack(self, attack):
+        result = Rules.attack(attack, self.characteristics['defense'])
+        if result['result'] >0:
+            self.characteristics['pv'] = self.characteristics['pv'] - result['result']
+        return {'result': result['result'], 'pv': self.characteristics['pv']}
