@@ -28,6 +28,10 @@ Programa que iremos creando en las sesione de código semanal de Draculinio con 
 * La librería que sea que use Telegram
 * Notion
 
+## Como correr el server:
 
-## COSAS - BACKLOG
+flask --app coso run
 
+## endpoints
+
+/player_api/<int:id> : Datos del jugador, actualmente super hardcodeado.
